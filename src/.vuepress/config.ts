@@ -3,7 +3,7 @@ import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
 
 export default defineUserConfig({
-  base: "/Jing104Note/",
+  base: "/",
 
   lang: "zh-CN",
   title: "Jing104-Note",
