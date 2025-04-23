@@ -3,27 +3,27 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
   "/",
   //demo页
-  "/demo/",
+  // "/demo/",
   {
-    text: "博文",
+    text: "学习笔记",
     icon: "pen-to-square",
     prefix: "/posts/",
     children: [
       {
-        text: "苹果",
+        text: "面试八股文",
         icon: "pen-to-square",
-        prefix: "apple/",
+        prefix: "interview/",
         children: [
-          { text: "苹果1", icon: "pen-to-square", link: "1" },
-          { text: "苹果2", icon: "pen-to-square", link: "2" },
-          "3",
-          "4",
+          { text: "Java基础", icon: "pen-to-square", link: "Java基础" },
+          { text: "Java集合", icon: "pen-to-square", link: "Java集合" },
+          { text: "Java并发", icon: "pen-to-square", link: "Java并发" },
+          { text: "Java++", icon: "pen-to-square", link: "Java++" }
         ],
       },
       {
-        text: "香蕉",
+        text: "算法结题",
         icon: "pen-to-square",
-        prefix: "banana/",
+        prefix: "algorithm/",
         children: [
           {
             text: "香蕉 1",
@@ -46,9 +46,9 @@ export default navbar([
     ],
   },
   //主题官网
-  {
-    text: "V2 文档",
-    icon: "book",
-    link: "https://theme-hope.vuejs.press/zh/",
-  },
+  // {
+  //   text: "V2 文档",
+  //   icon: "book",
+  //   link: "https://theme-hope.vuejs.press/zh/",
+  // },
 ]);

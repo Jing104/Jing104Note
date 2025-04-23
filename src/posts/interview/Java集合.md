@@ -1,18 +1,16 @@
 ---
 icon: pen-to-square
-date: 2022-01-02
+date: 2025-04-23
 category:
-  - 苹果
+  - Java集合
 tag:
-  - 红
-  - 大
-  - 圆
+  - Java集合
 star: true
 ---
 
-# 苹果 2
+# Java集合
 
-一个被星标了的苹果文章。
+Java集合
 
 <!-- more -->
 
