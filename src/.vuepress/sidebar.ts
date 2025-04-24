@@ -14,9 +14,25 @@ export default sidebar({
       text: "学习笔记",
       icon: "book",
       prefix: "posts/",
-      children: "structure",
+      children: [
+        {
+          text: "面试八股文",
+          icon: "pen-to-square",
+          prefix: "interview/",
+          children: [
+            { text: "Java基础",  link: "Java基础" },
+            { text: "Java集合",  link: "Java集合" },
+            { text: "Java并发",  link: "Java并发" },
+            { text: "Java++",  link: "Java++" }
+          ],
+        }]
     },
     "intro",
+    {
+      text: "感悟随笔",
+      icon: "heart",
+      link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
+    },
     {
       text: "幻灯片",
       icon: "person-chalkboard",
