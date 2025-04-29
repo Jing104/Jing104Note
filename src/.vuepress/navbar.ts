@@ -26,23 +26,19 @@ export default navbar([
         prefix: "algorithm/",
         children: [
           {
-            text: "香蕉 1",
+            text: "算法 1",
             icon: "pen-to-square",
             link: "1",
           },
           {
-            text: "香蕉 2",
+            text: "算法 2",
             icon: "pen-to-square",
             link: "2",
-          },
-          "3",
-          "4",
+          }
         ],
       },
-      { text: "樱桃", icon: "pen-to-square", link: "cherry" },
-      { text: "火龙果", icon: "pen-to-square", link: "dragonfruit" },
-      "tomato",
-      "strawberry",
+      { text: "感悟随笔", icon: "pen-to-square", link: "感悟随笔" },
+      { text: "观影感悟", icon: "pen-to-square", link: "观影感悟" }
     ],
   },
   //主题官网

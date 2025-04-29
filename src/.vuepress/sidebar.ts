@@ -20,23 +20,28 @@ export default sidebar({
           icon: "pen-to-square",
           prefix: "interview/",
           children: [
-            { text: "Java基础",  link: "Java基础" },
-            { text: "Java集合",  link: "Java集合" },
-            { text: "Java并发",  link: "Java并发" },
-            { text: "Java虚拟机",  link: "Java虚拟机" }
+            { text: "Java基础", link: "Java基础" },
+            { text: "Java集合", link: "Java集合" },
+            { text: "Java并发", link: "Java并发" },
+            { text: "Java虚拟机", link: "Java虚拟机" }
           ],
         }]
     },
-    "intro",
     {
-      text: "感悟随笔",
+      text: "小感性",
       icon: "heart",
-      link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
+      prefix: "posts/",
+      children: [
+        { text: "感悟随笔", link: "感悟随笔" },
+        { text: "观影感悟", link: "观影感悟" },
+
+      ],
     },
-    {
-      text: "幻灯片",
-      icon: "person-chalkboard",
-      link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
-    },
+    "intro",
+    // {
+    //   text: "幻灯片",
+    //   icon: "person-chalkboard",
+    //   link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
+    // },
   ],
 });
