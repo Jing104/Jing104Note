@@ -17,7 +17,7 @@ export default navbar([
           { text: "Java基础", icon: "pen-to-square", link: "Java基础" },
           { text: "Java集合", icon: "pen-to-square", link: "Java集合" },
           { text: "Java并发", icon: "pen-to-square", link: "Java并发" },
-          { text: "Java++", icon: "pen-to-square", link: "Java++" }
+          { text: "Java虚拟机", icon: "pen-to-square", link: "Java虚拟机" }
         ],
       },
       {
