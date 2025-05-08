@@ -16,7 +16,7 @@ export default sidebar({
       prefix: "posts/",
       children: [
         {
-          text: "面试八股文",
+          text: "Java学习",
           icon: "pen-to-square",
           prefix: "interview/",
           children: [

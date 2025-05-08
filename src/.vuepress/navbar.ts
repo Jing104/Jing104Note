@@ -10,7 +10,7 @@ export default navbar([
     prefix: "/posts/",
     children: [
       {
-        text: "面试八股文",
+        text: "Java学习",
         icon: "pen-to-square",
         prefix: "interview/",
         children: [
@@ -21,19 +21,19 @@ export default navbar([
         ],
       },
       {
-        text: "算法结题",
+        text: "算法题解学习",
         icon: "pen-to-square",
         prefix: "algorithm/",
         children: [
           {
-            text: "算法 1",
+            text: "二分法",
             icon: "pen-to-square",
-            link: "1",
+            link: "二分",
           },
           {
-            text: "算法 2",
+            text: "移除元素",
             icon: "pen-to-square",
-            link: "2",
+            link: "移除元素",
           }
         ],
       },
