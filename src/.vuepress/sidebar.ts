@@ -25,8 +25,20 @@ export default sidebar({
             { text: "Java并发", link: "Java并发" },
             { text: "Java虚拟机", link: "Java虚拟机" }
           ],
+        },
+        {
+          text: "小米训练营",
+          icon: "pen-to-square",
+          prefix: "xiaomi/",
+          children: [
+            { text: "Day1Java基础", link: "Day1Java基础" },
+            // { text: "Java集合", link: "Java集合" },
+            // { text: "Java并发", link: "Java并发" },
+            // { text: "Java虚拟机", link: "Java虚拟机" }
+          ],
         }]
     },
+
     {
       text: "小感性",
       icon: "heart",
