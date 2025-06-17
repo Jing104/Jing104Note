@@ -32,8 +32,8 @@ export default sidebar({
           prefix: "xiaomi/",
           children: [
             { text: "Day1Java基础", link: "Day1Java基础" },
-            // { text: "Java集合", link: "Java集合" },
-            // { text: "Java并发", link: "Java并发" },
+            { text: "Day2Java泛型与集合", link: "Day2Java泛型与集合" },
+            { text: "Day3JavaIO&设计模式", link: "Day3JavaIO&设计模式" },
             // { text: "Java虚拟机", link: "Java虚拟机" }
           ],
         }]
