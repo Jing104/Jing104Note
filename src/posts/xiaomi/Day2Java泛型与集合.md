@@ -78,7 +78,7 @@ Java泛型是在JavaSE 5引入的编程特性，它允许在编码时期是用�
 #### 同步
 ![alt text](image-1.png)
 ### Vector/Stack 类
-Vector是先行安全的动态数组；stack是栈
+Vector是线性安全的动态数组；stack是栈
 ### Set 接口
 无序性
 ### HashSet/TreeSet 类
@@ -96,11 +96,25 @@ Vector是先行安全的动态数组；stack是栈
 ### ArrayBlockQueue类
 ![alt text](image-2.png)
 ### DelayQueue类
+![alt text](image-3.png)
+![alt text](image-4.png)
+不常用
 ### Map 接口
+[![pVENLhF.png](https://s21.ax1x.com/2025/06/17/pVENLhF.png)](https://imgse.com/i/pVENLhF)
 ### HashMap/TreeMap 类
+[![pVEUSn1.png](https://s21.ax1x.com/2025/06/17/pVEUSn1.png)](https://imgse.com/i/pVEUSn1)
 ### ConcurrentHashMap 类
+[![pVEUuHP.png](https://s21.ax1x.com/2025/06/17/pVEUuHP.png)](https://imgse.com/i/pVEUuHP)
 ### Iterator（迭代器）
+
 ### 集合工具类（如 Arrays、Collections）
 ### 比较器（Comparable 与 Comparator）
+[![pVEUogH.png](https://s21.ax1x.com/2025/06/17/pVEUogH.png)](https://imgse.com/i/pVEUogH)
+要使用Collections.sort方法进行集合中元素排序的话，元素必须实现Comparable接口
 ### 集合的选择与应用场景
+[![pVEUxPS.png](https://s21.ax1x.com/2025/06/17/pVEUxPS.png)](https://imgse.com/i/pVEUxPS)
+功能是第一位
+[![pVEaibq.png](https://s21.ax1x.com/2025/06/17/pVEaibq.png)](https://imgse.com/i/pVEaibq)
+[![pVEaAaV.png](https://s21.ax1x.com/2025/06/17/pVEaAaV.png)](https://imgse.com/i/pVEaAaV)
 ### 总结与展望
+[![pVEaeGF.png](https://s21.ax1x.com/2025/06/17/pVEaeGF.png)](https://imgse.com/i/pVEaeGF)
