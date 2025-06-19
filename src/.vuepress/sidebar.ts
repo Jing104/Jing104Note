@@ -34,7 +34,9 @@ export default sidebar({
             { text: "Day1Java基础", link: "Day1Java基础" },
             { text: "Day2Java泛型与集合", link: "Day2Java泛型与集合" },
             { text: "Day3JavaIO&设计模式", link: "Day3JavaIO&设计模式" },
-            // { text: "Java虚拟机", link: "Java虚拟机" }
+            { text: "Day4Java8新特性", link: "Day4Java8新特性" },
+            // { text: "Day5", link: "Day5" },
+            // { text: "Day6", link: "Day6" }
           ],
         }]
     },
