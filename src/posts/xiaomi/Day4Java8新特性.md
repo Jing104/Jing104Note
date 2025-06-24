@@ -2,11 +2,11 @@
 icon: pen-to-square
 date: 2025-06-19
 category:
-    -小米训练营
+    - 小米训练营
 tag:
-    -Java
-    -1.8
-    -新特性
+    - Java
+    - 1.8
+    - 新特性
 ---
 # Day4 Java8新特性
 ## 函数式编程

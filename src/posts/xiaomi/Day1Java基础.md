@@ -2,10 +2,10 @@
 icon: pen-to-square
 date: 2025-06-16
 category:
-    -小米训练营
+    - 小米训练营
 tag:
-    -Java
-    -SE
+    - Java
+    - SE
 ---
 # Day1   Java基础
 [![pVE9mct.png](https://s21.ax1x.com/2025/06/16/pVE9mct.png)](https://imgse.com/i/pVE9mct)

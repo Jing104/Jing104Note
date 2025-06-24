@@ -35,8 +35,16 @@ export default sidebar({
             { text: "Day2Java泛型与集合", link: "Day2Java泛型与集合" },
             { text: "Day3JavaIO&设计模式", link: "Day3JavaIO&设计模式" },
             { text: "Day4Java8新特性", link: "Day4Java8新特性" },
-            // { text: "Day5", link: "Day5" },
-            // { text: "Day6", link: "Day6" }
+            { text: "Day5网络编程", link: "Day5网络编程" },
+            { text: "Day6并发编程", link: "Day6并发编程" },
+            { text: "Day7数据库编程", link: "Day7数据库编程" },
+            { text: "Day8Spring基础", link: "Day8Spring基础" },
+            { text: "Day9SpringBoot与微服务", link: "Day9SpringBoot与微服务" },
+            // { text: "Day7数据库编程", link: "Day7数据库编程" },
+            // { text: "Day7数据库编程", link: "Day7数据库编程" },
+            // { text: "Day7数据库编程", link: "Day7数据库编程" },
+            // { text: "Day7数据库编程", link: "Day7数据库编程" },
+
           ],
         }]
     },

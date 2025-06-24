@@ -2,10 +2,10 @@
 icon: pen-to-square
 date: 2025-06-17
 category:
-    -小米训练营
+    - 小米训练营
 tag:
-    -Java
-    -icon
+    - Java
+    - icon
     - 设计模式
 ---
 # Day2 Java泛型与集合
