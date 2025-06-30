@@ -40,8 +40,8 @@ export default sidebar({
             { text: "Day7数据库编程", link: "Day7数据库编程" },
             { text: "Day8Spring基础", link: "Day8Spring基础" },
             { text: "Day9SpringBoot与微服务", link: "Day9SpringBoot与微服务" },
-            // { text: "Day7数据库编程", link: "Day7数据库编程" },
-            // { text: "Day7数据库编程", link: "Day7数据库编程" },
+            { text: "Day10中间件和缓存", link: "Day10中间件和缓存" },
+            { text: "Day11性能优化与调优", link: "Day11性能优化与调优" },
             // { text: "Day7数据库编程", link: "Day7数据库编程" },
             // { text: "Day7数据库编程", link: "Day7数据库编程" },
 
