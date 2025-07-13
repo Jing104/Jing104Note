@@ -2,66 +2,206 @@
 icon: pen-to-square
 date: 2025-07-11
 category:
-    - BiliBli网课
+  - BiliBli网课
 tag:
-    - 黑马
-    - 消息队列
-    - RabbitMQ
+  - 黑马
+  - 消息队列
+  - RabbitMQ
 ---
-# 消息队列-RabbitMQ
-# 优势
+
+# 消息队列 - RabbitMQ
+
+## 优势
+
+::: tip 优点总结
 - 耦合度低，扩展性强
 - 异步调用，无需等待，性能好
 - 故障隔离
 - 缓存消息，流量削峰
-# 设计原则
+:::
+
+## 设计原则
+
 - 对于对方的执行结果不关心（执行成功也好失败也好对整个业务没有太大影响）
 - 调用链串行变并行，提高速率
-# 技术选型
-broker最常见实现方案：MQ（MessageQUeue 消息队列）
-RabbitMQ、ActiveMQ、RocketMQ、Kafka之间的区别
-# RabbitMQ
-## 下载安装自己去CSDN找教程吧
-## 管理页面
-默认端口：15672；默认用户名密码：guest guest
-### 整体架构和核心概念
-- publisher：消息发送者
-- consumer：消息的消费者
-- queue：队列，存储消息
-- exchange；交换机，负责路由消息
-生产者将消息发送给交换机，交换机按照配置将消息发给消息队列（1对1或者1对n），消费者监听特定的消息队列并消费消息
-交换机和消息队列就是RabbitMQ提供的中间服务，即对Broker的实现；RabbitMQ的吞吐量在十万左右，但是实际一个服务QPS可能达不到，这样我们可以多个服务共用一个RabbitMQ，这样的话要将各个服务隔离开。VirtualHost就起到一个隔离作用。
-模型架构图：
-[![86u3r.png](https://i.imgs.ovh/2025/07/11/86u3r.png)](https://imgloc.com/image/86u3r)
-要在管理页面对交换机和队列做绑定
-可以在Admin界面管理用户、虚拟机隔离等等
-## Spring AMQP（Advanced Message Queue Protocol）
-用于在应用程序之间传递业务消息的开放标准。该协议与语言和平台无关，更符合微服务中独立性的要求。
-Spring AMQP是对AMQP定义的一套API规范，提供了模板来发送和接收消息。包含两部分，其中spring-amqp是基础抽象，spring-rabbit是底层的默认实现。
-默认情况下一个队列绑定了多个消费者，会轮询，一个消费者一条消息，不会考虑每个消费者的处理能力。这样不会考虑消费者是否处理完消息，可能会出现消息堆积。可以修改配置，把prefetch改为1，确保同一时刻最多投递给消费者一条消息
-## 交换机
-### Fanout交换机：广播
-将接收到的消息广播到每一个跟其绑定的queue
-### Direct交换机：定向
-它会将接收到的消息，根据规则路由到指定的Queue，因此称为定向路由。
-每一个Queue都和Exchange设置一个BindingKey
-发布者发布消息时，指定消息的RoutingKey
-Exchange将消息路由到BindingKey与消息RoutingKey一致的队列
-多个队列可以绑定相同的BindingKey，这样的话对应RoutingKey的消息会被发到这多个队列
-*默认就是Direct*
-### Topic交换机
-Topic交换机和Direct交换机类似，区别在于routingKey可以是多个单词的列表，并且以“.”分割。
-Queue与Exchange指定BindingKey时可以使用通配符：
-- `#`：代表0个或者多个单词（其实Direct，也能绑定多个，但是都要单独绑定麻烦）
-- `*`：代指一个单词
-## 声明队列交换机
-在控制台声明交换机十分繁琐，切换开发、测试、运维等环境时还容易出错；我们应当通过java代码声明创建
-Spring AMQP提供了几个类，用来声明队列、交换机及其绑定关系：
-- Queue：用于声明队列，可以用工厂类QueueBuilder构建
-- Exchange：用于声明交换机，可以用工厂类ExchangeBuilder构建
-- Binding：用于声明队列和交换机的绑定关系，可以用工厂类BindingBuilder构建
-### 配置类声明@Configuration+@Bean
-### 基于@RabbitListener注解来声明队列和交换机
+
+## 技术选型
+
+::: tabs#mq
+@tab RabbitMQ
+- 基于 AMQP 协议
+- 社区活跃，生态成熟
+- 支持多种交换机类型，灵活性强
+
+@tab Kafka
+- 高吞吐量，适用于大数据日志
+- 顺序性强，分区处理
+- 更偏流处理而非任务队列
+
+@tab RocketMQ
+- 支持事务消息
+- 延迟消息友好
+- 阿里主推产品，国产优势
+
+@tab ActiveMQ
+- 功能全面
+- 老牌项目，文档齐全
+- 对比其他方案活跃度略低
+:::
+
+---
+
+## RabbitMQ
+
+### 安装与登录
+
+- 请前往 CSDN 或官方文档查看安装细节
+- 默认管理页面端口：`15672`
+- 默认账号密码：`guest / guest`
+
+### 核心架构与术语
+
+| 术语        | 说明                 |
+|-------------|----------------------|
+| Publisher   | 消息发送者           |
+| Consumer    | 消息消费者           |
+| Queue       | 消息队列             |
+| Exchange    | 交换机，用于路由消息 |
+
+生产者将消息发送给交换机，交换机按照配置将消息路由至一个或多个队列。消费者监听指定队列并进行消费。
+
+VirtualHost 用于服务之间隔离，防止队列冲突。
+
+![架构图](https://i.imgs.ovh/2025/07/11/86u3r.png)
+
+可通过 Web 控制台进行用户、队列、交换机的管理与绑定。
+
+---
+
+## Spring AMQP
+
+Spring AMQP 是对 AMQP 协议的封装，提供标准化 API。主要包含两部分：
+
+- `spring-amqp`：基础抽象层
+- `spring-rabbit`：基于 RabbitMQ 的默认实现
+
+### 消费逻辑说明
+
+默认行为：一个队列绑定多个消费者时，会**轮询分发**消息，一个消费者一条，不考虑处理能力。
+
+优化方式：
+
+```yaml
+spring:
+  rabbitmq:
+    listener:
+      simple:
+        prefetch: 1
+```
+
+设置 prefetch=1，确保同一时刻最多向每个消费者投递一条消息。
+
+---
+
+## 交换机类型
+
+### Fanout 交换机（广播）
+
+::: info
+将消息广播给所有绑定的队列，不区分 RoutingKey。
+:::
+
+### Direct 交换机（定向路由）
+
+- Queue 与 Exchange 设置 BindingKey
+- Publisher 指定 RoutingKey
+- Exchange 将消息投递到 BindingKey 匹配的队列
+
+**默认类型即为 Direct。**
+
+### Topic 交换机（通配符匹配）
+
+RoutingKey 支持多单词组合（以 `.` 分隔）
+
+- `*`：匹配一个单词
+- `#`：匹配 0 或多个单词
+
+示例：
+
+```text
+log.*    → 匹配 log.info、log.warn
+log.#    → 匹配 log.db.error、log.db.conn
+```
+
+---
+
+## 队列与交换机声明方式
+
+### 配置类方式
+
+使用 Java 配置类创建：
+
+```java
+@Configuration
+public class RabbitConfig {
+
+  @Bean
+  public Queue exampleQueue() {
+    return QueueBuilder.durable("example.queue").build();
+  }
+
+  @Bean
+  public Exchange exampleExchange() {
+    return ExchangeBuilder.directExchange("example.exchange").durable(true).build();
+  }
+
+  @Bean
+  public Binding exampleBinding() {
+    return BindingBuilder.bind(exampleQueue()).to(exampleExchange()).with("route.key").noargs();
+  }
+}
+```
+
+### 注解方式
+
+使用 `@RabbitListener` 声明监听队列：
+
+```java
+@RabbitListener(queues = "example.queue")
+public void receive(String message) {
+  System.out.println("收到消息: " + message);
+}
+```
+
+---
+
 ## 消息转换器
-java对象发送到消息队列中会被序列化成一串，所以我们要用消息转换器。
-引入jackson依赖，使用配置类中使用@Bean  Jackson2JasonMessageConverter
+
+Java 对象发送到消息队列时需序列化。推荐使用 Jackson 进行 JSON 转换：
+
+### 引入依赖
+
+```xml
+<dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-databind</artifactId>
+</dependency>
+```
+
+### 配置类中定义转换器
+
+```java
+@Bean
+public MessageConverter jsonMessageConverter() {
+  return new Jackson2JsonMessageConverter();
+}
+```
+
+---
+
+## 总结
+
+- RabbitMQ 适合中等吞吐量场景，功能强、社区成熟
+- 推荐使用 Spring AMQP 自动声明队列与交换机，简化配置
+- 根据业务场景合理选择交换机类型
+- 建议引入消息转换器保障消息格式一致性

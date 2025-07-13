@@ -38,7 +38,7 @@ export default hopeTheme({
       // Dingding: "https://example.com",
       // Discord: "https://example.com",
       // Dribbble: "https://example.com",
-      Email: "2046485376@qq.com",
+      Email: "mailto:2046485376@qq.com",
       // Evernote: "https://example.com",
       // Facebook: "https://example.com",
       // Flipboard: "https://example.com",
@@ -52,7 +52,7 @@ export default hopeTheme({
       // Linkedin: "https://example.com",
       // Pinterest: "https://example.com",
       // Pocket: "https://example.com",
-      QQ: "https://example.com",
+      QQ: "https://wpa.qq.com/msgrd?v=3&uin=2046485376&site=qq&menu=yes",
       // Qzone: "https://example.com",
       // Reddit: "https://example.com",
       // Rss: "https://example.com",
@@ -91,7 +91,7 @@ export default hopeTheme({
   // 此处开启了很多功能用于演示，你应仅保留用到的功能。
   markdown: {
     //开启思维导图markmap
-    markmap:true,
+    markmap: true,
     align: true,
     attrs: true,
     codeTabs: true,
@@ -168,10 +168,18 @@ export default hopeTheme({
 
     // 启用之前需安装 @waline/client
     // 警告: 这是一个仅供演示的测试服务，在生产环境中请自行部署并使用自己的服务！
-    // comment: {
-    //   provider: "Waline",
-    //   serverURL: "https://waline-comment.vuejs.press",
-    // },
+    comment: {
+      provider: "Giscus",
+      repo: "Jing104/Jing104NoteComments",
+      repoId: "R_kgDOPLk4xA",
+      category: "Announcements",
+      categoryId: "DIC_kwDOPLk4xM4Cs37O",
+      mapping: "pathname",         // 每篇文章以其路径作为评论关联标识
+      strict: false,               // 对路径匹配不强制区分
+      reactionsEnabled: true,      // 启用 GitHub 表情反馈
+      inputPosition: "bottom",     // 评论框位置：底部
+      darkTheme: "preferred_color_scheme", // 根据系统配色自动切换深色模式
+    },
 
     components: {
       components: ["Badge", "VPCard"],
@@ -179,6 +187,7 @@ export default hopeTheme({
 
     icon: {
       prefix: "fa6-solid:",
+      assets: "fontawesome-with-brands",
     },
 
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
