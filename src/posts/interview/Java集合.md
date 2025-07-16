@@ -2,7 +2,7 @@
 icon: pen-to-square
 date: 2025-04-23
 category:
-  - Java集合
+  - 八股
 tag:
   - Java集合
 star: true

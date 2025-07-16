@@ -2,7 +2,7 @@
 icon: pen-to-square
 date: 2025-04-29
 category:
-  - Java虚拟机
+  - 八股
 tag:
   - Java虚拟机
 ---
