@@ -64,22 +64,28 @@ export default defineClientConfig({
 
         const injectButton = () => {
             const btn = document.createElement("button");
-            btn.innerText = "🎭";
+            btn.innerHTML = "変";
             Object.assign(btn.style, {
                 position: "fixed",
                 zIndex: "99999",
-                width: "36px",
-                height: "36px",
+                width: "40px",
+                height: "40px",
                 borderRadius: "50%",
-                background: "#ffd6e8",
-                color: "#a30041",
+                background: "#1a1a1a", // 黑色背景
+                color: "#ffffff",      // 白色文字
                 fontWeight: "bold",
-                fontSize: "18px",
-                border: "2px solid #ff8ec3",
-                boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                fontSize: "20px",
+                border: "2px solid #ffffff", // 白色描边
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
                 cursor: "pointer",
                 display: "none",
-                transition: "opacity 0.3s ease",
+                transition: "all 0.3s ease",
+                textAlign: "center",
+                display: "flex", // 使用 Flexbox 布局
+                justifyContent: "center", // 水平居中
+                alignItems: "center", // 垂直居中
+                fontFamily: "sans-serif",
+                textShadow: "0 0 2px #000",
             });
 
             document.body.appendChild(btn);
