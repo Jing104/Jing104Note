@@ -1,1 +1,12 @@
-// place your custom styles here
+canvas {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  image-rendering: auto !important;
+  transform: translateZ(0); // GPU 优化
+  will-change: transform;
+}
+
+#live2dcanvas {
+  pointer-events: auto;
+}

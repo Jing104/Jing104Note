@@ -6,6 +6,28 @@ category:
 tag:
   - Java并发
 ---
+<script>
+  L2Dwidget.init({
+    model: {
+      jsonPath: "https://unpkg.com/live2d-widget-model-haru/assets/haru01.model.json",
+    },
+    display: {
+      position: "right",
+      width: 150,
+      height: 300,
+      hOffset: 20,
+      vOffset: 0,
+    },
+    mobile: {
+      show: true,
+      scale: 0.5
+    },
+    react: {
+      opacityDefault: 0.8,
+      opacityOnHover: 0.2
+    }
+  });
+</script>
 
 # Java并发
 ::: important
