@@ -87,7 +87,7 @@ export default hopeTheme({
 
   // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
   // hotReload: true,
-
+  contributors: false,
   // 此处开启了很多功能用于演示，你应仅保留用到的功能。
   markdown: {
     //开启思维导图markmap

@@ -10,6 +10,7 @@ export default defineUserConfig({
   description: "Jing104 的学习笔记博客",
 
   theme,
+  
 
   // 和 PWA 一起启用
   // shouldPrefetch: false,
