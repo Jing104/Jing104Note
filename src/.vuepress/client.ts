@@ -3,7 +3,9 @@ import { defineClientConfig } from "vuepress/client";
 export default defineClientConfig({
     enhance() {
         if (typeof window === "undefined") return;
+        //@ts-ignore
         if (window.__LIVE2D_LOADED__) return;
+        //@ts-ignore
         window.__LIVE2D_LOADED__ = true;
 
         // 模型列表（更多可爱角色）
@@ -40,7 +42,9 @@ export default defineClientConfig({
             script.src = "https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js";
             script.onload = () => {
                 setTimeout(() => {
+                    //@ts-ignore
                     if (typeof window.L2Dwidget !== "undefined") {
+                        //@ts-ignore
                         window.L2Dwidget.init({
                             model: { jsonPath: models[index] },
                             display: {
@@ -81,6 +85,7 @@ export default defineClientConfig({
                 display: "none",
                 transition: "all 0.3s ease",
                 textAlign: "center",
+                //@ts-ignore
                 display: "flex", // 使用 Flexbox 布局
                 justifyContent: "center", // 水平居中
                 alignItems: "center", // 垂直居中
@@ -153,6 +158,7 @@ export default defineClientConfig({
         const setupAutoTalk = () => {
             setInterval(() => {
                 if (!live2dReady) return;
+                //@ts-ignore
                 const widget = window.L2Dwidget || {};
                 const core = widget._widget || widget;
                 if (core && typeof core.tap === "function") {
