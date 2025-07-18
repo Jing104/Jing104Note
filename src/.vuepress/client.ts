@@ -86,7 +86,7 @@ export default defineClientConfig({
                 transition: "all 0.3s ease",
                 textAlign: "center",
                 //@ts-ignore
-                display: "flex", // 使用 Flexbox 布局
+                display: "none", // 使用 Flexbox 布局
                 justifyContent: "center", // 水平居中
                 alignItems: "center", // 垂直居中
                 fontFamily: "sans-serif",
