@@ -192,11 +192,11 @@ tag:
 ![img_23.png](img_23.png)
 
 ## 项目演示视频
-
-<video controls style="width: 100%; max-width: 800px;">
-  <source src="/videos/java5-demo.mp4" type="video/mp4" />
-  您的浏览器不支持 video 标签。
+<video controls width="800">
+  <source src="https://github.com/Jing104/Jing104Note/releases/download/v1.0.0/java5-demo.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
+
 
 
 ## 实训总结
