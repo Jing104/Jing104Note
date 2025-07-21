@@ -57,6 +57,7 @@ export default sidebar({
             { text: "苍穹外卖", link: "苍穹外卖" },
             { text: "Git版本管理", link: "Git版本管理" },
             { text: "RabbitMQ", link: "RabbitMQ" },
+            { text: "Raytron实习", link: "Raytron实习" },
           ],
         },
         {

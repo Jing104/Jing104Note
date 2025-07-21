@@ -18,7 +18,7 @@ export default navbar([
           { text: "Java集合", link: "Java集合" },
           { text: "Java并发", link: "Java并发" },
           { text: "Java虚拟机", link: "Java虚拟机" },
-            { text: "Spring", link: "Spring" }
+          { text: "Spring", link: "Spring" }
         ],
       },
 
@@ -52,6 +52,8 @@ export default navbar([
         { text: "苍穹外卖", link: "苍穹外卖" },
         { text: "Git版本管理", link: "Git版本管理" },
         { text: "RabbitMQ", link: "RabbitMQ" },
+        { text: "Raytron实习", link: "Raytron实习" },
+        
       ],
     },
     {
