@@ -6,13 +6,13 @@ export default sidebar({
     {
       text: "八股算法",
       collapsible: true,
-      icon: "book-open", // 算法知识类
+      icon: "book-quran",
       prefix: "/posts/",
       children: [
         {
           text: "Java学习",
           collapsible: true,
-          icon: "fa-brands fa-java", // Java 图标
+          icon: "fa-brands fa-java",
           prefix: "interview/",
           children: [
             { text: "Java基础", link: "Java基础" },
@@ -21,12 +21,15 @@ export default sidebar({
             { text: "Java虚拟机", link: "Java虚拟机" },
             { text: "Spring", link: "Spring" },
             { text: "MySQL", link: "MySQL" },
+            { text: "计算机网络", link: "计算机网络" },
+            { text: "操作系统", link: "操作系统" },
           ],
         },
+
         {
           text: "算法",
           collapsible: true,
-          icon: "sitemap", // 算法结构
+          icon: "gears",
           prefix: "algorithm/",
           children: [
             { text: "哈希", link: "哈希" },
@@ -42,48 +45,70 @@ export default sidebar({
         },
       ]
     },
-
     {
       text: "实习实训网课",
       collapsible: true,
-      icon: "chalkboard-teacher", // 教学类图标
+      icon: "chalkboard-teacher",
       prefix: "/posts/",
-      children: [
-        {
-          text: "Bilibili网课",
-          collapsible: true,
-          icon: "video", // 视频课程
-          prefix: "BiliBiliStudy/",
-          children: [
-            { text: "苍穹外卖", link: "苍穹外卖" },
-            { text: "Git版本管理", link: "Git版本管理" },
-            { text: "RabbitMQ", link: "RabbitMQ" },
-            { text: "Raytron实习", link: "Raytron实习" },
-          ],
-        },
-        {
-          text: "小米训练营",
-          collapsible: true,
-          icon: "building", // 企业实训
-          prefix: "xiaomi/",
-          children: [
-            { text: "Day1Java基础", link: "Day1Java基础" },
-            { text: "Day2Java泛型与集合", link: "Day2Java泛型与集合" },
-            { text: "Day3JavaIO&设计模式", link: "Day3JavaIO&设计模式" },
-            { text: "Day4Java8新特性", link: "Day4Java8新特性" },
-            { text: "Day5网络编程", link: "Day5网络编程" },
-            { text: "Day6并发编程", link: "Day6并发编程" },
-            { text: "Day7数据库编程", link: "Day7数据库编程" },
-            { text: "Day8Spring基础", link: "Day8Spring基础" },
-            { text: "Day9SpringBoot与微服务", link: "Day9SpringBoot与微服务" },
-            { text: "Day10中间件和缓存", link: "Day10中间件和缓存" },
-            { text: "Day11性能优化与调优", link: "Day11性能优化与调优" },
-            { text: "Day12-15AI客服实践", link: "Day12-15AI客服实践" },
-          ],
-        }
-      ]
-    },
+      children: [{
+        text: "Bilibili网课",
+        collapsible: true,
+        icon: "video",
+        prefix: "BiliBiliStudy/",
+        children: [
+          { text: "苍穹外卖", link: "苍穹外卖" },
+          { text: "Git版本管理", link: "Git版本管理" },
+          { text: "RabbitMQ", link: "RabbitMQ" },
+          { text: "设计模式", link: "设计模式" },
+          { text: "Docker", link: "Docker" },
+          { text: "Maven", link: "Maven" },
 
+        ],
+      },
+      {
+        text: "实习",
+        collapsible: true,
+        icon: "user-tie",
+        prefix: "intern/",
+        children: [
+          { text: "Raytron实习", link: "Raytron实习" },
+          { text: "Inspur实习", link: "Inspur实习" },
+
+        ],
+      },
+      {
+        text: "小米训练营",
+        collapsible: true,
+        icon: "building",
+        prefix: "xiaomi/",
+        children: [
+          { text: "Day1Java基础", link: "Day1Java基础" },
+          { text: "Day2Java泛型与集合", link: "Day2Java泛型与集合" },
+          { text: "Day3JavaIO&设计模式", link: "Day3JavaIO&设计模式" },
+          { text: "Day4Java8新特性", link: "Day4Java8新特性" },
+          { text: "Day5网络编程", link: "Day5网络编程" },
+          { text: "Day6并发编程", link: "Day6并发编程" },
+          { text: "Day7数据库编程", link: "Day7数据库编程" },
+          { text: "Day8Spring基础", link: "Day8Spring基础" },
+          { text: "Day9SpringBoot与微服务", link: "Day9SpringBoot与微服务" },
+          { text: "Day10中间件和缓存", link: "Day10中间件和缓存" },
+          { text: "Day11性能优化与调优", link: "Day11性能优化与调优" },
+          { text: "Day12-15AI客服实践", link: "Day12-15AI客服实践" },
+
+        ],
+      }]
+    },
+    {
+      text: "毕业设计",
+      collapsible: true,
+      icon: "medal",
+      prefix: "/posts/graduation/",
+      children: [
+        { text: "机器学习", link: "机器学习" },
+        { text: "opencv", link: "opencv" },
+        { text: "python", link: "python" },
+      ],
+    },
     {
       text: "小感性",
       collapsible: true,

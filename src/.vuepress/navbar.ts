@@ -6,7 +6,7 @@ export default navbar([
   // "/demo/",
   {
     text: "八股算法",
-    icon: "book-open",
+    icon: "book-quran",
     prefix: "/posts/",
     children: [
       {
@@ -20,12 +20,14 @@ export default navbar([
           { text: "Java虚拟机", link: "Java虚拟机" },
           { text: "Spring", link: "Spring" },
           { text: "MySQL", link: "MySQL" },
+          { text: "计算机网络", link: "计算机网络" },
+          { text: "操作系统", link: "操作系统" },
         ],
       },
 
       {
         text: "算法",
-        icon: "sitemap",
+        icon: "gears",
         prefix: "algorithm/",
         children: [
           { text: "哈希", link: "哈希" },
@@ -47,14 +49,26 @@ export default navbar([
     prefix: "/posts/",
     children: [{
       text: "Bilibili网课",
-      icon: "pvideo",
+      icon: "video",
       prefix: "BiliBiliStudy/",
       children: [
         { text: "苍穹外卖", link: "苍穹外卖" },
         { text: "Git版本管理", link: "Git版本管理" },
         { text: "RabbitMQ", link: "RabbitMQ" },
+        { text: "设计模式", link: "设计模式" },
+        { text: "Docker", link: "Docker" },
+        { text: "Maven", link: "Maven" },
+
+      ],
+    },
+    {
+      text: "实习",
+      icon: "user-tie",
+      prefix: "intern/",
+      children: [
         { text: "Raytron实习", link: "Raytron实习" },
-        
+        { text: "Inspur实习", link: "Inspur实习" },
+
       ],
     },
     {
@@ -74,11 +88,21 @@ export default navbar([
         { text: "Day10中间件和缓存", link: "Day10中间件和缓存" },
         { text: "Day11性能优化与调优", link: "Day11性能优化与调优" },
         { text: "Day12-15AI客服实践", link: "Day12-15AI客服实践" },
-        // { text: "Day7数据库编程", link: "Day7数据库编程" },
 
       ],
     }]
   },
+  {
+    text: "毕业设计",
+    icon: "medal",
+    prefix: "/posts/graduation/",
+    children: [
+      { text: "机器学习", link: "机器学习" },
+      { text: "opencv", link: "opencv" },
+      { text: "python", link: "python" },
+    ],
+  },
+
   //主题官网
   // {
   //   text: "V2 文档",
