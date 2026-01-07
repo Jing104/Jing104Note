@@ -16,18 +16,18 @@ tag:
 
 `settings.xml` 定义了 Maven 的运行环境和资源获取路径。它通常存放在 `${MAVEN_HOME}/conf/settings.xml`（全局）或 `~/.m2/settings.xml`（用户级）。
 
-### 1. <localRepository> (本地仓库)
-* **作用**：定义 Maven 下载的所有构件（Jar 包）在本地磁盘的存储位置。
-* **应用**：建议修改默认路径，避免占用系统盘空间。
-* **示例**：
+### 1. `<localRepository>` (本地仓库)
+ **作用**：定义 Maven 下载的所有构件（Jar 包）在本地磁盘的存储位置。
+ **应用**：建议修改默认路径，避免占用系统盘空间。
+ **示例**：
     ```xml
     <localRepository>D:/maven_repository</localRepository>
     ```
 
-### 2. <mirrors> (镜像配置)
-* **作用**：将对指定仓库（如中央仓库）的请求重定向到国内镜像站，极大提升下载速度。
-* **应用**：中国开发者必配阿里云镜像。
-* **示例**：
+### 2. `<mirrors>` (镜像配置)
+ **作用**：将对指定仓库（如中央仓库）的请求重定向到国内镜像站，极大提升下载速度。
+ **应用**：中国开发者必配阿里云镜像。
+ **示例**：
     ```xml
     <mirrors>
       <mirror>
@@ -38,10 +38,10 @@ tag:
     </mirrors>
     ```
 
-### 3. <servers> (服务器认证)
-* **作用**：存储访问远程私有仓库（如 Nexus）的权限信息。
-* **应用**：发布项目到私服时，需配置对应的账号密码。
-* **示例**：
+### 3. `<servers>` (服务器认证)
+ **作用**：存储访问远程私有仓库（如 Nexus）的权限信息。
+ **应用**：发布项目到私服时，需配置对应的账号密码。
+ **示例**：
     ```xml
     <servers>
       <server>
@@ -51,9 +51,9 @@ tag:
     </servers>
     ```
 
-### 4. <profiles> (全局配置集)
-* **作用**：定义全局属性或插件配置，可根据环境自动激活。
-* **示例**：
+### 4. `<profiles>` (全局配置集)
+ **作用**：定义全局属性或插件配置，可根据环境自动激活。
+ **示例**：
     ```xml
     <profiles>
       <profile>
@@ -78,14 +78,14 @@ tag:
 
 
 ### 1. 项目坐标 (GAV)
-* **作用**：唯一标识一个项目。
-* **示例**：
+ **作用**：唯一标识一个项目。
+ **示例**：
     ```xml
     <groupId>com.example.module</groupId> <artifactId>demo-service</artifactId> <version>1.0.0-SNAPSHOT</version>    <packaging>jar</packaging>            ```
 
-### 2. <parent> (继承)
-* **作用**：引入父项目的配置，简化子项目的配置工作。
-* **示例**：
+### 2. `<parent>` (继承)
+ **作用**：引入父项目的配置，简化子项目的配置工作。
+ **示例**：
     ```xml
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -94,9 +94,9 @@ tag:
         <relativePath/> </parent>
     ```
 
-### 3. <properties> (属性定义)
-* **作用**：定义常量变量，方便统一管理版本号。
-* **示例**：
+### 3. `<properties>` (属性定义)
+ **作用**：定义常量变量，方便统一管理版本号。
+ **示例**：
     ```xml
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -104,13 +104,13 @@ tag:
     </properties>
     ```
 
-### 4. <dependencies> (依赖列表)
-* **作用**：声明项目运行所需的第三方库。
-* **关键子标签 <scope>**：
+### 4. `<dependencies>` (依赖列表)
+ **作用**：声明项目运行所需的第三方库。
+ **关键子标签 `<scope>`**：
     * `compile`: 默认，全阶段有效。
     * `test`: 仅测试代码有效。
     * `provided`: 编译有效，运行时由环境（如 Tomcat）提供。
-* **示例**：
+ **示例**：
     ```xml
     <dependencies>
         <dependency>
@@ -122,9 +122,9 @@ tag:
     </dependencies>
     ```
 
-### 5. <dependencyManagement> (依赖版本管理)
-* **作用**：在父工程中统一声明版本，不实际引入。子模块引用时省略版本号，确保版本一致。
-* **示例**：
+### 5. `<dependencyManagement>` (依赖版本管理)
+ **作用**：在父工程中统一声明版本，不实际引入。子模块引用时省略版本号，确保版本一致。
+ **示例**：
     ```xml
     <dependencyManagement>
         <dependencies>
@@ -137,9 +137,9 @@ tag:
     </dependencyManagement>
     ```
 
-### 6. <build> (构建配置)
-* **作用**：配置编译插件、资源过滤及打包后的文件名。
-* **示例**：
+### 6. `<build>` (构建配置)
+ **作用**：配置编译插件、资源过滤及打包后的文件名。
+ **示例**：
     ```xml
     <build>
         <finalName>my-application</finalName>
@@ -152,9 +152,9 @@ tag:
     </build>
     ```
 
-### 7. <modules> (多模块聚合)
-* **作用**：在聚合父工程中列出所有子模块，实现一键构建。
-* **示例**：
+### 7. `<modules>` (多模块聚合)
+ **作用**：在聚合父工程中列出所有子模块，实现一键构建。
+ **示例**：
     ```xml
     <modules>
         <module>common-utils</module>
