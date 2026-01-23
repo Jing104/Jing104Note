@@ -40,6 +40,8 @@ export default sidebar({
             { text: "普通数组", link: "普通数组" },
             { text: "移除元素", link: "移除元素" },
             { text: "二叉树", link: "二叉树" },
+            { text: "图论", link: "图论" },
+            { text: "回溯", link: "回溯" },
             { text: "二分", link: "二分" }
           ],
         },
