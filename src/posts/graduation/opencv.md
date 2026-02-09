@@ -159,5 +159,66 @@ cv.cvtColor(input_image, flag)
   - cv.COLOR_BGR2HSY:`BGR <-> HSV`
 
 ### 图像的算术运算
+#### 图像的加法
+可以使用OpenCv的`cv.add()`函数把两幅图相加，也可以简单地用numpy操作添加两个图象，如`res = img1 + img2`。两个图象要有相同的大小和类型，或者第二个图象可以是标量。
+**注意：OpenCV和Numpy的加法不一样，CV的加法是饱和操作，Numpy添加是模运算**
+一般来说图像操作还是cv的相加效果更好
+```python
+# 举例
+x = np.uint8([250])
+y = np.uint8([10])
+# cv的相加，包和运算，因为灰度图的像素值是0-255，所以250+10 = 260 > 255,饱和后取255，最后输出255
+print(cv.add(x,y))
+# Numpy的相加操作，250 + 10 % 256 = 4.对256取模
+print(x + y)
+```
+##### 图像的混合
+**提示：在图像融合中，常用 cv2.addWeighted(图像一, 权重一, 图像二, 权重二, γ) 来实现带权重的加法（如：$y = \alpha \cdot x_1 + \beta \cdot x_2 + \gamma$）**
+公式:g(x) = (1 - $\alpha f_1(x)$) + $\alpha f_2(x)$,α的值为0-1。
+#### 图像的减法、乘法除法
+*图像减法 (Subtraction)*
+用于检测两张图片之间的差异（如运动检测）。
+OpenCV (cv2.subtract): 如果结果小于 0，则设为 0（变为黑色）。
+代码示例: `diff = cv2.subtract(img1, img2)`
+
+*图像乘法与除法 (Multiplication & Division)*
+这两种运算虽然不如加减法常用，但在特定场景下非常关键。
+乘法 (cv2.multiply): 常用于调整对比度或应用掩码（Mask）。
+例如：将图像与系数 1.5 相乘可提高亮度/对比度。
+除法 (cv2.divide): 常用于归一化、光照补偿或提取图像之间的比例关系。
+例如：校正光照不均匀的底片。
+## 几何变换
+图像的缩放、平移、旋转等，了解数字图像的仿射变换和透射变换
+### 图像缩放
+对图像的大小进行调整，放大缩小
+```python
+import cv2 as cv
+cv.resize(src,dsize,fx = 0,fy = 0, interpolation = cv.INTER_LINEAR)
+```
+参数：
+- src：输入图像
+- dsize：绝对尺寸，直接指定调整后图像的大小
+- fx，fy：使用时将dsize设none，将fx和fy设置为比例因子即可
+- interpolation：插值方法
+
+| 插值常量 | 含义 | 常用场景 |
+| :--- | :--- | :--- |
+| `cv2.INTER_LINEAR` | **双线性插值法** | 默认方式，放大图像时效果较好，速度均衡 |
+| `cv2.INTER_NEAREST` | **最近邻插值** | 速度最快，但放大后锯齿感强，常用于掩码处理 |
+| `cv2.INTER_AREA` | **像素区域重采样** | **缩小图像**时的首选，能避免波纹和噪点 |
+| `cv2.INTER_CUBIC` | **双三次插值** | 放大图像时效果最细腻，但计算开销较大 |
+```python
+rows, cols = mob.shape[:2]
+print(type(rows), cols)
+
+# 绝对尺寸
+res = cv.resize(mob, (int(0.5 * cols), int(2 * rows)))
+plt.imshow(res[:,:,::-1])
+
+# 相对尺寸
+res1 = cv.resize(mob, None, fx = 0.5, fy = 0.1)
+plt.imshow(res1[:,:,::-1])
+```
+### 图像平移
 
 
