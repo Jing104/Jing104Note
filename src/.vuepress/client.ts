@@ -82,7 +82,6 @@ export default defineClientConfig({
                 border: "2px solid #ffffff", // 白色描边
                 boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
                 cursor: "pointer",
-                display: "none",
                 transition: "all 0.3s ease",
                 textAlign: "center",
                 //@ts-ignore
