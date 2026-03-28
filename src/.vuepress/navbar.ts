@@ -40,7 +40,8 @@ export default navbar([
           { text: "二叉树", link: "二叉树" },
           { text: "图论", link: "图论" },
           { text: "回溯", link: "回溯" },
-          { text: "二分", link: "二分" }
+          { text: "二分", link: "二分" },
+          { text: "栈", link: "栈" }
         ],
       },
     ]

@@ -184,10 +184,23 @@ calculate(10, calculate_plus_ten)
 
 ```
 ## 匿名函数
-lambda 毋庸置疑，匿名函数，即用即仍。lambda关键字用来定义匿名函数，格式为`lambda 参数列表（逗号分隔）:返回值`，lambda函数也能直接运行，定义括号起来，后面加括号起来的参数，比如`(lambda num1, num2 : num1 + num2)(2, 3)`,python中的匿名函数一般比较简单，不能定义很复杂的匿名函数
+lambda 毋庸置疑，匿名函数，即用即扔。lambda关键字用来定义匿名函数，格式为`lambda 参数列表（逗号分隔）:返回值`，lambda函数也能直接运行，定义括号起来，后面加括号起来的参数，比如`(lambda num1, num2 : num1 + num2)(2, 3)`,python中的匿名函数一般比较简单，不能定义很复杂的匿名函数
 ```python
 def calculate(num, calculator):
   print(calculator(num))
 calculate(20, lambda num : num ** 2)
 print((lambda num1, num2 : num1 + num2)(2, 3))
+```
+# pytorch框架
+## 基本操作
+[陶卓的pytorch基本操作课1](https://www.bilibili.com/video/BV1rC4y1v7sN/?spm_id_from=333.337.search-card.all.click&vd_source=9904df165dd692d82a83f49193928739)
+[陶卓的pytorch基本操作课2](https://www.bilibili.com/video/BV1Ux4y1Z7Cp?spm_id_from=333.788.player.player_end_recommend_autoplay&vd_source=9904df165dd692d82a83f49193928739&trackid=web_related_0.router-related-2481894-v7bf2.1770707054253.70)
+
+
+
+
+
+
+```python
+
 ```
