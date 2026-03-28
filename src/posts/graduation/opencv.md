@@ -219,6 +219,99 @@ plt.imshow(res[:,:,::-1])
 res1 = cv.resize(mob, None, fx = 0.5, fy = 0.1)
 plt.imshow(res1[:,:,::-1])
 ```
-### 图像平移
+### 图像平移 (Translation)
+图像平移需要构建一个变换矩阵 $M$：
+$$M = \begin{bmatrix} 1 & 0 & t_x \\ 0 & 1 & t_y \end{bmatrix}$$
+其中 $t_x$ 是向右移动的距离，$t_y$ 是向下移动的距离。
+
+```python
+import cv2 as cv
+import numpy as np
+
+img = cv.imread('test.jpg')
+rows, cols = img.shape[:2]
+
+# 定义平移矩阵 M: [1, 0, tx], [0, 1, ty]
+# 例如：向右移动 100 像素，向下移动 50 像素
+M = np.float32([[1, 0, 100], [0, 1, 50]])
+
+# 使用 warpAffine 执行变换
+# 参数：输入图像、变换矩阵、输出图像大小 (宽, 高)
+dst = cv.warpAffine(img, M, (cols, rows))
+
+cv.imshow('Translation', dst)
+cv.waitKey(0)
+```
+### 图像旋转 (Rotation)
+OpenCV 提供了 `cv.getRotationMatrix2D` 来获取旋转矩阵，支持缩放和任意中心点。
+
+```python
+import cv2 as cv
+
+img = cv.imread('test.jpg')
+rows, cols = img.shape[:2]
+
+# 参数：旋转中心，旋转角度（正为逆时针），缩放比例
+# 这里选择图像中心旋转 45 度，不缩放
+M = cv.getRotationMatrix2D((cols/2, rows/2), 45, 1)
+
+# 执行变换
+dst = cv.warpAffine(img, M, (cols, rows))
+
+cv.imshow('Rotation', dst)
+cv.waitKey(0)
+```
+
+### 仿射变换与透射变换 (Affine & Perspective)
+* **仿射变换**：保持平行性（如矩形变平行四边形）。需要 3 个点来确定变换关系。
+* **透射变换**：即“视点投影”，不保持平行性（如将斜拍的卡片拉正）。需要 4 个点确定。
+
+```python
+import cv2 as cv
+import numpy as np
+
+# 1. 仿射变换示例
+pts1 = np.float32([[50, 50], [200, 50], [50, 200]])
+pts2 = np.float32([[10, 100], [200, 50], [100, 250]])
+M_affine = cv.getAffineTransform(pts1, pts2)
+dst_affine = cv.warpAffine(img, M_affine, (cols, rows))
+
+# 2. 透射变换示例 (常用于扫描全能王这类文档校正)
+pts1 = np.float32([[56, 65], [368, 52], [28, 387], [389, 390]])
+pts2 = np.float32([[0, 0], [300, 0], [0, 300], [300, 300]])
+M_persp = cv.getPerspectiveTransform(pts1, pts2)
+dst_persp = cv.warpPerspective(img, M_persp, (300, 300))
+```
+### 图像阈值处理 (Thresholding)
+将图像转换为黑白二值图，常用于分割前景和背景。
+
+```python
+import cv2 as cv
+
+img_gray = cv.imread('test.jpg', 0) # 以灰度模式读取
+
+# 简单阈值处理
+# 参数：原图(灰度), 阈值, 最大值, 类型
+ret, thresh1 = cv.threshold(img_gray, 127, 255, cv.THRESH_BINARY)
+
+# Otsu 二值化 (自动计算最佳阈值)
+ret, thresh2 = cv.threshold(img_gray, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+```
+
+### 图像平滑 (Smoothing)
+用于消除噪声。不同的滤波器适用于不同的噪声类型。
+
+| 方法 | 函数 | 适用场景 |
+| :--- | :--- | :--- |
+| **均值滤波** | `cv.blur()` | 去除随机噪声 |
+| **高斯滤波** | `cv.GaussianBlur()` | 最常用的平滑方法，效果自然 |
+| **中值滤波** | `cv.medianBlur()` | 消除椒盐噪声（黑白点噪声）极有效 |
+| **双边滤波** | `cv.bilateralFilter()` | 在去噪的同时能保留清晰的边缘 |
+
+```python
+# 高斯滤波示例
+# (5, 5) 是卷积核大小，0 是标准差（根据核大小自动计算）
+blur = cv.GaussianBlur(img, (5, 5), 0)
+```
 
 
